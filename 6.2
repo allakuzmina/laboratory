@@ -1,0 +1,81 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Alive {
+    protected:
+    string paroda;
+    int age;
+    string name;
+    public:
+    Alive(string name, int age, string paroda) : name(name), age(age), paroda(paroda) {};
+    string getName() {
+        return name;
+    }
+        int getAge() {
+            return age;
+        }
+        string getParoda() {
+            return paroda;
+        }
+            virtual void move() = 0;
+        };
+class Fish : public Alive  {
+    public :
+    Fish(int age, string name, string paroda) : Alive(name, age, paroda) {};
+    void move() 
+    {
+        cout << "fish " << "swim" << endl;
+    }
+};
+class Animal : public Alive {
+    public :
+    Animal(int age, string name, string paroda) : Alive(name, age, paroda) {};
+    void move()
+    {
+        cout << "animal " << "run" << endl;
+    }
+};
+class Bird : public Alive {
+    public :
+    Bird(int age, string name, string paroda) : Alive(name, age, paroda) {};
+    void move()
+    {
+        cout << "bird " << "fly" << endl;
+    }
+};
+int main() {
+    int age;
+    string name;
+    string paroda;
+    cout << "Animal" << endl;
+    cout << "enter name: ";
+    cin >> name;
+    cout << "enter age: " ;
+    cin >> age;
+    cout << "enter paroda: ";
+    cin >> paroda;
+    Animal a(age, name, paroda);
+    cout << "Bird" << endl;
+    cout << "enter name: ";
+    cin >> name;
+    cout << "enter age: " ;
+    cin >> age;
+    cout << "enter paroda: ";
+    cin >> paroda;
+    Bird b(age, name, paroda);
+    cout << "Fish" << endl;
+     cout << "enter name: ";
+    cin >> name;
+    cout << "enter age: " ;
+    cin >> age;
+    cout << "enter paroda: ";
+    cin >>paroda;
+    Fish c(age, name, paroda);
+    cout << "Animal" << endl << "name: " << a.getName() << endl << "age: " << a.getAge() << endl << "paroda: " << a.getParoda() <<endl;
+    a.move();
+    cout << "Bird" << endl << "name: " << b.getName() << endl << "age: " << b.getAge() << endl << "paroda: " << a.getParoda() <<endl;
+    b.move();
+    cout << "Fish" << endl << "name: " << c.getName() << endl << "age: " << c.getAge() << endl << "habitat: " << a.getParoda() <<endl;
+    c.move();
+    return 0;
+};
