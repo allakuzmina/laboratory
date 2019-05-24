@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Animal {
+    protected:
+    string paroda;
+    int age;
+    string name;
+    public:
+    Animal(string name, int age, string paroda) : name(name), age(age), paroda(paroda) {};
+    string getName() {
+        return name;
+    }
+        int getAge() {
+            return age;
+        }
+        string getParoda() {
+            return paroda;
+        }
+            virtual void move() = 0;
+        };
+class Cat : public Animal  {
+    public :
+    Cat(int age, string name, string paroda) : Animal(name, age, paroda) {};
+    void move() 
+    {
+        cout << "cat " << "mrrr" << endl;
+    }
+};
+class Dog : public Animal {
+    public :
+    Dog(int age, string name, string paroda) : Animal(name, age, paroda) {};
+    void move()
+    {
+        cout << "dog " << "gav" << endl;
+    }
+};
+
+int main() {
+    int age;
+    string name;
+    string paroda;
+    cout << "Cat" << endl;
+    cout << "enter name: ";
+    cin >> name;
+    cout << "enter age: " ;
+    cin >> age;
+    cout << "enter paroda: ";
+    cin >> paroda;
+    Cat a(age, name, paroda);
+    cout << "Dog" << endl;
+    cout << "enter name: ";
+    cin >> name;
+    cout << "enter age: " ;
+    cin >> age;
+    cout << "enter paroda: ";
+    cin >> paroda;
+    Dog b(age, name, paroda);
+    cout << "Cat" << endl << "name: " << a.getName() << endl << "age: " << a.getAge() << endl << "paroda: " << a.getParoda() <<endl;
+    a.move();
+    cout << "Dog" << endl << "name: " << b.getName() << endl << "age: " << b.getAge() << endl << "paroda: " << a.getParoda() <<endl;
+    b.move();
+
+    return 0;
+};
