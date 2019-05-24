@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Tiles {
+    public:
+        string brand;
+        int size_h;
+        int size_w;
+        int price;
+        void getData() {
+            cout << "Brand: " << '\t' << brand << endl;
+            cout << "Length: " << '\t' << size_h << endl;
+            cout << "Width " << '\t' << size_w << endl;
+            cout << "Price: " << '\t' << price << endl;
+        };
+};
+
+int main() {
+    Tiles t1,t2,t3;
+    t1.brand = "Металл";
+    t1.size_h = 6;
+    t1.size_w = 15;
+    t1.price = 1000;
+    t2.brand = "Дерево";
+    t2.size_h = 30;
+    t2.size_w = 25;
+    t2.price = 850;
+    t3.brand = "Плитка";
+    t3.size_h = 20;
+    t3.size_w = 25;
+    t3.price = 600;
+    t1.getData();
+    t1.getData();
+    t3.getData();
+    return 0;
+}
