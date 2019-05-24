@@ -1,39 +1,40 @@
 #include <iostream>
-#include <conio.h>
 #include <string>
-#include <math.h>
-
+#include <cmath>
 using namespace std;
 
-class Complex {
+class Complex 
+{
+	double Re, Im;
 public:
-
-	double re, im;
-	double modul() {
-		return sqrt(re*re + im * im);
+	void set_c()
+	{
+		cout << "Enter valid part: " << endl;
+		cin >> Re;
+		cout << "Enter the imaginary part: " << endl;
+		cin >> Im; 
 	}
-	double arg() {
-		return (atan(im / re))*180/3.14159265;
+	string get_c() 
+	{
+		return to_string(Re) + "+" + to_string(Im) + "i";
+	}
+	double modul() 
+	{
+		return sqrt(Re*Re + Im*Im);
+	}
+	double arg()
+	{
+		return atan(Im / Re);
 	}
 };
 
-int main() {
-
-	Complex A[3];
-	cout << "Введите комплексные числа" << endl << endl;
-	for (int i = 0; i < 3; i++) {
-		cout << "Действительная часть комлексного числа " << i + 1 << ": ";
-		cin >> A[i].re;
-		cout << "Мнимая часть комплексного числа " << i + 1 << ": ";
-		cin >> A[i].im;
-		cout << endl;
-	}
-	cout << endl;
-	for (int i = 0; i < 3; i++) {
-		cout << "Модуль числа " << i + 1 << " = " << A[i].modul() << endl;
-		cout << "Аргумент числа " << i + 1 << " = " << A[i].arg() << endl;
-		cout << endl;
-	}
-	_getch();
-	return 0;
+int main()
+{
+	Complex a;
+	a.set_c();
+	cout << a.get_c() << endl;;
+	cout << a.modul()<<endl;
+	cout<<a.arg()<<endl;
+	system("pause");
+    return 0;
 }
