@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cmath>
+#include <list>
+using namespace std;
+
+class Complex {
+	double re;
+	double im;
+public:
+	Complex(double re,double im) : re(re), im(im) {}
+  Complex (const Complex&c) {
+    re =c.re;
+     im=c.re; 
+     }
+	Complex operator= (const Complex& c) {
+		return Complex(c.re, c.im);
+	}
+
+	void setNumber(double re, double im) {
+		this->re = re;
+		this->im = im;
+	}
+
+	double getModule() {
+		return sqrt(re * re + im * im);
+	}
+
+	void displayData() {
+		cout << "Число: " << re;
+		if (im < 0) {
+			cout << im << "i" << endl;
+		} else {
+			cout << "+" << im << "i" << endl;
+		}
+		cout << "Модуль: " << getModule() << endl;
+	}
+
+	~Complex() {}
+};
+
+int main() {
+	list<Complex> k;
+
+	for (int i = 0; i < 2; i++) {
+    
+		double re, im;
+	cout << "Введите целую часть(x" << i+1 << "): ";
+		cin >> re;
+		cout << "Введите  мнимую часть(x" << i+1 << "): ";
+		cin >> im;
+		k.push_back(Complex(re, im));
+}
+for (auto a : k) {
+		cout << endl;
+		a.displayData();
+	}
+
+	system("pause");
+	return 0;
+}
